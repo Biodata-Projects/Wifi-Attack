@@ -30,24 +30,18 @@ No Description
    pkg install python3 -y
    pkg install git -y
    pkg install python-pip -y
-pip install colorama requests speedtest-cli dnspython
    ```
-   
 
-1. **Clone the repository:**
+2. **Clone the repository:**
    ```bash
-   
    git clone https://github.com/Biodata-Projects/Wifi-Attack.git
    cd Wifi-Jammer
    
    ```
 
-
-2. **Install required libraries:**
+3. **Install required libraries:**
    ```bash
    pip install colorama requests speedtest-cli dnspython
-   ```
-   ```bash
    pip3 install colorama requests speedtest-cli dnspython
    ```
    - 🌈 **colorama:** For colorful console magic.
