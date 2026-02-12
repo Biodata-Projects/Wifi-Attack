@@ -3,7 +3,12 @@
 [![Python Version](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![Status Proyek](https://img.shields.io/badge/Status-Aktif-brightgreen.svg)]()
 
-No Description
+## No Description
+Tool analisis jaringan WiFi berbasis Python untuk Termux, dilengkapi fitur pemindaian klien dan pengujian kecepatan. Dikembangkan untuk pembelajaran keamanan siber.
+
+## Disclaimer
+⚠️ **Peringatan & Tanggung Jawab Hukum**
+Alat ini dibuat **hanya untuk tujuan edukasi dan pengujian keamanan pada jaringan yang Anda miliki atau miliki izin tertulis untuk diuji**. Penyalahgunaan alat ini untuk menyerang jaringan tanpa izin adalah tindakan ILEGAL. Pengembang tidak bertanggung jawab atas segala kerusakan atau pelanggaran hukum yang disebabkan oleh pengguna alat ini.
 
 ## 🖼️ Screenshot
 | Tampilan |
@@ -34,15 +39,15 @@ No Description
 
 2. **Clone the repository:**
    ```bash
-   git clone https://github.com/Biodata-Projects/Wifi-Attack.git
+   git clone https://github.com/NextTools-Py/Wifi-Attack.git
    cd Wifi-Attack
    
    ```
 
 3. **Install required libraries:**
    ```bash
-   pip install colorama requests speedtest-cli dnspython
-   pip3 install colorama requests speedtest-cli dnspython
+   pip install colorama requests
+   pip3 install colorama requests
    ```
    - 🌈 **colorama:** For colorful console magic.
    - 🌐 **requests:** For HTTP attack power.
