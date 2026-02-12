@@ -3,8 +3,8 @@
 [![Python Version](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![Status Proyek](https://img.shields.io/badge/Status-Aktif-brightgreen.svg)]()
 
-## No Description
-Tool analisis jaringan WiFi berbasis Python untuk Termux, dilengkapi fitur pemindaian klien dan pengujian kecepatan. Dikembangkan untuk pembelajaran keamanan siber.
+## Description
+Tools ini di ciptakan untuk menyerang dan  analisis jaringan WiFi berbasis Python untuk Termux, dilengkapi fitur pemindaian klien. Dikembangkan untuk pembelajaran keamanan siber.
 
 ## Disclaimer
 ⚠️ **Peringatan & Tanggung Jawab Hukum**
