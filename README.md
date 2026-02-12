@@ -4,7 +4,7 @@
 [![Status Proyek](https://img.shields.io/badge/Status-Aktif-brightgreen.svg)]()
 
 ## Description
-Tools ini di ciptakan untuk menyerang dan  analisis jaringan WiFi berbasis Python untuk Termux, dilengkapi fitur pemindaian klien. Dikembangkan untuk pembelajaran keamanan siber.
+Tools ini di ciptakan untuk menyerang jaringan dengan mengirim packets yang sangat besar agar jaringan WIFI menjadi lag dan berbasis Python untuk Termux, dilengkapi fitur pemindaian klien. Dikembangkan untuk pembelajaran keamanan siber.
 
 ## Disclaimer
 ⚠️ **Peringatan & Tanggung Jawab Hukum**
